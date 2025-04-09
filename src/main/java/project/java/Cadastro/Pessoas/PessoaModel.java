@@ -1,4 +1,4 @@
-package project.java.Cadastro;
+package project.java.Cadastro.Pessoas;
 
 import jakarta.persistence.*;
 
@@ -12,9 +12,12 @@ public class PessoaModel {
     private String nome;
     private String email;
     private int idade;
+    //@ManyToOne - uma pessoa tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") //chave estrangeira foreign key
+    private MissoesModel missoes;
 
     public PessoaModel(){
-
     }
 
     public PessoaModel(String nome, String email, int idade){
